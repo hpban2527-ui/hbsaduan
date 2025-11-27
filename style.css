@@ -1,0 +1,225 @@
+/* ---- 1. SETUP CHUNG (Galaxy Base) ---- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+:root {
+    --color-dark-deep: #12121e; /* Màu nền đen tím sâu thẳm */
+    --color-dark-mid: #1c1c2e;  /* Màu thẻ card hơi sáng hơn */
+    --color-text-light: #e0e0f0; /* Màu chữ trắng xanh nhạt */
+    --color-text-accent: #c2d8ff; /* Màu chữ phụ, xanh sapphire */
+    --color-accent-gold: #f4c20d; /* Màu nhấn chính (Vàng ánh kim/Sao) */
+    --color-accent-blue: #70aaff; /* Màu nhấn phụ (Xanh Ngân hà) */
+    --border-radius: 10px;
+}
+
+/* Hiệu ứng Fade-in chung khi tải trang */
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--color-dark-deep);
+    color: var(--color-text-light);
+    margin: 0;
+    line-height: 1.6;
+    animation: fadein 1s ease-out;
+}
+
+h1, h2, h3 {
+    color: var(--color-accent-blue);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* ---- 2. NAVIGATION BAR (Thanh điều hướng) ---- */
+nav {
+    background: rgba(28, 28, 46, 0.8); /* Nền tối trong suốt */
+    padding: 15px 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    position: sticky; /* Giữ thanh nav trên cùng */
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* Hiệu ứng mờ (nếu trình duyệt hỗ trợ) */
+}
+
+nav a {
+    color: var(--color-text-light);
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden; /* Dùng cho hiệu ứng lấp lánh */
+}
+
+nav a:hover {
+    color: var(--color-accent-gold);
+    background: var(--color-dark-mid);
+    box-shadow: 0 0 10px var(--color-accent-gold); /* Ánh sáng lấp lánh */
+    transform: translateY(-2px);
+}
+
+nav img {
+    height: 40px;
+    float: right;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent-blue);
+}
+
+/* ---- 3. HEADER & BUTTONS (Tiêu đề và Nút) ---- */
+header {
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--color-dark-deep) 0%, rgba(28, 28, 46, 0.5) 100%);
+}
+
+header h1 {
+    font-size: 3.5em;
+    margin-bottom: 5px;
+    text-shadow: 0 0 15px var(--color-accent-blue); /* Ánh sáng Ngân hà */
+}
+
+header h3 {
+    color: var(--color-accent-gold);
+    font-weight: 400;
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px; /* Nút tròn, mềm mại */
+    background: var(--color-accent-blue);
+    color: var(--color-dark-deep);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(112, 170, 255, 0.4);
+}
+
+button:hover {
+    background: var(--color-accent-gold);
+    color: var(--color-dark-deep);
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(244, 194, 13, 0.6);
+}
+
+/* ---- 4. CARD VÀ CONTENT CHUNG (Giới thiệu, Thành viên) ---- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background: var(--color-dark-mid);
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(112, 170, 255, 0.2); /* Viền mỏng */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(244, 194, 13, 0.3);
+}
+
+/* ---- 5. TEAM.HTML SPECIFIC (Trang Thành viên) ---- */
+.card .name {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: var(--color-text-light); /* Đặt lại màu chữ trắng để nền thẻ tối */
+}
+
+.card .intro {
+    font-style: normal;
+    font-size: 0.95em;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+    color: var(--color-text-accent);
+}
+
+.leader {
+    border: 3px solid var(--color-accent-gold);
+    background: #3a2b4d; /* Nền tối tím đậm hơn cho Trưởng nhóm */
+    box-shadow: 0 0 25px rgba(244, 194, 13, 0.5); /* Hiệu ứng tỏa sáng */
+}
+
+.leader .name {
+    color: var(--color-accent-gold); /* Tên Trưởng nhóm nổi bật */
+    text-transform: uppercase;
+}
+
+/* ---- 6. ABOUT.HTML SPECIFIC (Giá trị Cốt lõi) ---- */
+#about-content ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+#about-content li {
+    background: var(--color-dark-mid);
+    padding: 15px 25px;
+    border-radius: 50px; /* Hình viên thuốc */
+    border: 2px solid var(--color-accent-blue);
+    font-weight: 600;
+    color: var(--color-text-light);
+    transition: background 0.3s;
+}
+
+#about-content li:hover {
+    background: var(--color-accent-blue);
+    color: var(--color-dark-deep);
+}
+
+/* ---- 7. CONTACT.HTML SPECIFIC (Form và Danh sách liên hệ) ---- */
+form input,
+form textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-dark-mid);
+    background: #0d0d18; /* Nền input tối hơn */
+    color: var(--color-text-light);
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--color-accent-gold);
+    box-shadow: 0 0 10px rgba(244, 194, 13, 0.4);
+}
+
+.member-list div {
+    background: var(--color-dark-mid);
+    color: var(--color-text-light);
+    padding: 12px 20px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    border-left: 5px solid var(--color-accent-blue);
+}
+
+.member-list span {
+    color: var(--color-accent-gold);
+}
+
+/* TẠO LẠI CẤU TRÚC CHO TẤT CẢ CÁC TỆP HTML */
+.content-wrapper {
+    padding: 40px 20px;
+}
